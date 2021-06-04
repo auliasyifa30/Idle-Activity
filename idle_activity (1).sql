@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2021 at 06:51 PM
+-- Generation Time: Jun 04, 2021 at 01:32 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -53,7 +53,9 @@ CREATE TABLE `auth_groups` (
 
 INSERT INTO `auth_groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Site Administrator'),
-(2, 'idle', 'Idle Engineer');
+(2, 'idle', 'Idle Engineer'),
+(3, 'hr', 'Human Resources Manager'),
+(4, 'manager', 'Manager at ADD Idle Engineer');
 
 -- --------------------------------------------------------
 
@@ -73,7 +75,13 @@ CREATE TABLE `auth_groups_permissions` (
 INSERT INTO `auth_groups_permissions` (`group_id`, `permission_id`) VALUES
 (1, 1),
 (1, 2),
-(2, 2);
+(2, 2),
+(2, 3),
+(2, 4),
+(3, 2),
+(3, 5),
+(4, 2),
+(4, 6);
 
 -- --------------------------------------------------------
 
@@ -91,8 +99,10 @@ CREATE TABLE `auth_groups_users` (
 --
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
-(1, 1),
-(2, 2);
+(1, 5),
+(2, 2),
+(3, 3),
+(4, 4);
 
 -- --------------------------------------------------------
 
@@ -122,7 +132,36 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (6, '::1', '2016470009@ftumj.ac.id', 1, '2021-06-03 09:44:19', 1),
 (7, '::1', 'agustinabagus14@gmail.com', 2, '2021-06-03 10:12:24', 1),
 (8, '::1', '2016470009@ftumj.ac.id', 1, '2021-06-03 10:12:39', 1),
-(9, '::1', 'agustinabagus14@gmail.com', 2, '2021-06-03 11:22:11', 1);
+(9, '::1', 'agustinabagus14@gmail.com', 2, '2021-06-03 11:22:11', 1),
+(10, '::1', '2016470009@ftumj.ac.id', 1, '2021-06-03 22:34:59', 1),
+(11, '::1', 'agustinabagus14@gmail.com', 2, '2021-06-03 22:36:33', 1),
+(12, '::1', 'agustinabagus14@gmail.com', 2, '2021-06-03 22:39:39', 1),
+(13, '::1', '2016470009@ftumj.ac.id', 1, '2021-06-03 22:39:53', 1),
+(14, '::1', '2016470009', NULL, '2021-06-04 00:28:28', 0),
+(15, '::1', '2016470009@ftumj.ac.id', 1, '2021-06-04 02:25:50', 1),
+(16, '::1', '2016470009@ftumj.ac.id', 1, '2021-06-04 02:57:00', 1),
+(17, '::1', 'agustinabagus14@gmail.com', 2, '2021-06-04 02:58:52', 1),
+(18, '::1', 'aulia_syifa', NULL, '2021-06-04 03:43:19', 0),
+(19, '::1', 'aulia_syifa', NULL, '2021-06-04 03:43:28', 0),
+(20, '::1', 'jaka_oke', NULL, '2021-06-04 03:43:56', 0),
+(21, '::1', '2016470009@ftumj.ac.id', 2, '2021-06-04 03:44:10', 1),
+(22, '::1', 'aulia_syifa', 5, '2021-06-04 03:46:29', 0),
+(23, '::1', 'auliasyifa346@gmail.com', 5, '2021-06-04 03:46:58', 1),
+(24, '::1', 'jaka_oke', NULL, '2021-06-04 03:53:28', 0),
+(25, '::1', 'jakabrajadenta@gmail.com', 3, '2021-06-04 03:54:44', 1),
+(26, '::1', 'rozali_ilham@gmail.com', 4, '2021-06-04 04:02:15', 1),
+(27, '::1', 'jakabrajadenta@gmail.com', 3, '2021-06-04 04:03:15', 1),
+(28, '::1', 'auliasyifa346@gmail.com', 5, '2021-06-04 04:22:14', 1),
+(29, '::1', '2016470009@ftumj.ac.id', 2, '2021-06-04 05:14:43', 1),
+(30, '::1', 'auliasyifa346@gmail.com', 5, '2021-06-04 05:19:22', 1),
+(31, '::1', 'jakabrajadenta@gmail.com', 3, '2021-06-04 05:29:11', 1),
+(32, '::1', 'rozali_ilham@gmail.com', 4, '2021-06-04 05:35:36', 1),
+(33, '::1', 'jakabrajadenta@gmail.com', 3, '2021-06-04 05:36:56', 1),
+(34, '::1', 'auliasyifa346@gmail.com', 5, '2021-06-04 05:37:36', 1),
+(35, '::1', 'jakabrajadenta@gmail.com', 3, '2021-06-04 05:46:35', 1),
+(36, '::1', '2016470009@ftumj.ac.id', 2, '2021-06-04 06:02:40', 1),
+(37, '::1', 'auliasyifa346@gmail.com', 5, '2021-06-04 06:03:55', 1),
+(38, '::1', '2016470009@ftumj.ac.id', 2, '2021-06-04 06:10:14', 1);
 
 -- --------------------------------------------------------
 
@@ -142,7 +181,11 @@ CREATE TABLE `auth_permissions` (
 
 INSERT INTO `auth_permissions` (`id`, `name`, `description`) VALUES
 (1, 'manage-users', 'Manage All Users'),
-(2, 'manage-profile', 'Manage User\'s Profile');
+(2, 'manage-profile', 'Manage User\'s Profile'),
+(3, 'submit-activity', 'Submit Activity Idle'),
+(4, 'list-activity', 'List Activity Idle'),
+(5, 'approved-activity', 'Approved Activity Idle by Hr Manager'),
+(6, 'list-activity-approved', 'List Activity after Approved HR Manager');
 
 -- --------------------------------------------------------
 
@@ -216,7 +259,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
-  `username` varchar(30) DEFAULT NULL,
+  `username` varchar(30) NOT NULL,
   `fullname` varchar(255) DEFAULT NULL,
   `user_image` varchar(255) NOT NULL DEFAULT 'default.svg',
   `password_hash` varchar(255) NOT NULL,
@@ -238,8 +281,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `user_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '2016470009@ftumj.ac.id', '2016470009', NULL, 'default.svg', '$2y$10$qcWOdqMAcluj.jdOF6H77ePw2a0VB9o0nSEyD/DjvmLtOGAe/KGr2', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-03 08:46:31', '2021-06-03 08:46:31', NULL),
-(2, 'agustinabagus14@gmail.com', 'agustina', NULL, 'default.svg', '$2y$10$s5I8KFQUFnQO9OWh603db.Js74u5apX.oiVQOJzkhhA5/Q512iFbK', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-03 09:05:23', '2021-06-03 09:05:23', NULL);
+(2, '2016470009@ftumj.ac.id', 'idle_1', 'Idle 1', 'default.svg', '$2y$10$s5I8KFQUFnQO9OWh603db.Js74u5apX.oiVQOJzkhhA5/Q512iFbK', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-03 09:05:23', '2021-06-03 09:05:23', NULL),
+(3, 'jakabrajadenta@gmail.com', 'jaka_oke', 'Jaka Brajadenta', 'default.svg', '$2y$10$qcWOdqMAcluj.jdOF6H77ePw2a0VB9o0nSEyD/DjvmLtOGAe/KGr2', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-04 10:23:04', '2021-06-04 10:23:04', NULL),
+(4, 'rozali_ilham@gmail.com', 'rozali_ilham', 'Rozali Ilham', 'default.svg', '$2y$10$qcWOdqMAcluj.jdOF6H77ePw2a0VB9o0nSEyD/DjvmLtOGAe/KGr2', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-04 10:23:04', '2021-06-04 10:23:04', NULL),
+(5, 'auliasyifa346@gmail.com', 'aulia_syifa', 'Aulia Syifa', 'default.svg', '$2y$10$s5I8KFQUFnQO9OWh603db.Js74u5apX.oiVQOJzkhhA5/Q512iFbK', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-04 10:33:09', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -334,19 +379,19 @@ ALTER TABLE `auth_activation_attempts`
 -- AUTO_INCREMENT for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `auth_reset_attempts`
@@ -370,7 +415,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

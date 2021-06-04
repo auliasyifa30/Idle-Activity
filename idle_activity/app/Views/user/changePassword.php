@@ -25,42 +25,35 @@
 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 <div class="card h-100">
   <div class="card-body">
-    <div class="row gutters">
+    <div class="col-md-12">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <h6 class="mb-2 text-primary">Personal Details</h6>
+        <h6 class="mb-2 text-primary">Change Password</h6>
+        <hr>
+        <br>
       </div>
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        <form>
+        <div class="form-group ">
+          <label for="oldPassword">Old Password</label>
+          <input type="text" class="form-control" id="oldPassword" placeholder="Old Password ...">
+        </div>
+
         <div class="form-group">
-          <label for="fullName">Full Name</label>
-          <input type="text" class="form-control" id="fullName" placeholder="<?= user()->fullname; ?>" readonly>
+          <label for="newPassword">New Password</label>
+          <input type="text" class="form-control" id="newPassword" placeholder="New Password ...">
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="text" class="form-control" id="confirmPassword" placeholder="Confirm Password ...">
         </div>
       </div>
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-          <label for="eMail">Email</label>
-          <input type="email" class="form-control" id="eMail" placeholder="<?= user()->email; ?>" readonly>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" placeholder="<?= user()->username; ?>" readonly>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" placeholder="<?= user()->password_hash; ?>" readonly>
-        </div>
-      </div>
-    </div>
-    <div class="row gutters">
+</form>
       
-    </div>
     <div class="row gutters">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="text-right">
-          <button type="button" id="submit" name="submit" class="btn btn-primary">Change Password</button>
+          <button type="submit" name="submit" class="btn btn-secondary">Cancel</button>
+          <button type="submit" name="update" value="update" class="btn btn-primary">Update</button>
         </div>
       </div>
     </div>

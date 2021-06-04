@@ -10,7 +10,7 @@
 		    <h6 class="display-4"><h1>Welcome to System Monitoring Idle Activity</h1></h6>
 		    <br>
 		    <hr>
-		    <p class="btn btn-primary">Your role : ADMIN
+		    <p class="btn btn-primary">Your role : MANAGER
 		  </div>
 	</div>
 </div>

@@ -47,6 +47,6 @@ class Admin extends BaseController
 			return redirect()->to('/admin');
 		}
 
-		return view('admin/detail', $data);
+		return view('admin/detailList', $data);
 	}
 }

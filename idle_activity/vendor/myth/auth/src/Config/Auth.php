@@ -31,7 +31,7 @@ class Auth extends BaseConfig
         // 'register' => 'Myth\Auth\Views\register',
         'login' => '\App\Views\Auth\login',
         'register' => '\App\Views\Auth\register',
-        'forgot' => 'Myth\Auth\Views\forgot',
+        'forgot' => '\App\Views\Auth\forgot',
         'reset' => 'Myth\Auth\Views\reset',
         'emailForgot' => 'Myth\Auth\Views\emails\forgot',
         'emailActivation' => 'Myth\Auth\Views\emails\activation',
@@ -126,7 +126,7 @@ class Auth extends BaseConfig
     // via specified resetter. Default setting is email.
     //
     // public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
-    public $activeResetter = false;
+    public $activeResetter = true;
 
     //--------------------------------------------------------------------
     // Allow Persistent Login Cookies (Remember me)

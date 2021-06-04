@@ -9,7 +9,7 @@
     <h1 class="h3 mb-2 text-gray-800"><?= $title; ?></h1>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">List Data User</h6>
+            <h6 class="m-0 font-weight-bold text-primary">List Activity Idle</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -17,29 +17,23 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>Description</th>
+                            <th>Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     
                     <tbody>
-					  	<?php $i = 1; ?>
-					  	<?php foreach ($users as $user) : ?>
-						    <tr>
-						      <th scope="row"><?= $i++; ?></th>
-						      <td><?= $user->username; ?></td>
-						      <td><?= $user->email; ?></td>
-						      <td><?= $user->name; ?></td>
-						      <td>
-						      	<a href="<?= base_url('admin/' . $user->userid); ?>" class="btn btn-info">Detail</a>
-						      	<a href="#" class="btn btn-primary">Edit</a>
-						      	<a href="#" class="btn btn-danger">Delete</a>
-						      </td>
-						    </tr>
-					   	<?php endforeach; ?> 
-					  </tbody>
+                      <?php $i = 1; ?>
+                        <tr>
+                          <th scope="row"><?= $i++; ?></th>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <a href="#" class="btn btn-primary">Export</a>
+                          </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

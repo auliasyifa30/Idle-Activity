@@ -14,14 +14,14 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url('user'); ?>">
+                <a class="nav-link" href="/user">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Nav Item - Submit Activity -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url('user'); ?>">
+                <a class="nav-link" href="/user/submit">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Submit Activity</span></a>
             </li>
@@ -40,16 +40,55 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url('admin'); ?>">
+                <a class="nav-link" href="/admin">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Nav Item - List Users -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php base_url('admin/userList'); ?>">
+               <!--  <a class="nav-link" href="<?php base_url('admin/userList'); ?>"> -->
+                <a class="nav-link" href="/admin/userList">
                     <i class="fas fa-fw fa-table"></i>
                     <span>List User</span></a>
+            </li>
+
+            <!-- ============== ROLE HR MANAGER =================== -->
+            <?php elseif (in_groups('hr')) : ?>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="/hr">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Nav Item - Approved Activity -->
+            <li class="nav-item">
+                <a class="nav-link" href="/hr/approved">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Approved Activity</span></a>
+            </li>
+
+            <!-- ============== ROLE MANAGER =================== -->
+            <?php else : ?>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="/manager">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Nav Item - Approved Activity -->
+            <li class="nav-item">
+                <a class="nav-link" href="/manager/list-approval">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>List Approval Activity</span></a>
             </li>
             <?php endif; ?>
 

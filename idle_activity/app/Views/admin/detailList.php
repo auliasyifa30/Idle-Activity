@@ -13,9 +13,6 @@
           <img src="<?= base_url('/img/' . user()->user_image); ?>" alt="<?= user()->username; ?>">
         </div>
       
-        <hr>
-        <h5 class="user-name"><span><?= user()->fullname; ?></span></h5>
-        <h6 class="user-email"><span><?= user()->username; ?></span></h6>
       </div>
       
     </div>
@@ -26,9 +23,7 @@
 <div class="card h-100">
   <div class="card-body">
     <div class="row gutters">
-      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <h6 class="mb-2 text-primary">Personal Details</h6>
-      </div>
+      
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="form-group">
           <label for="fullName">Full Name</label>
@@ -49,18 +44,16 @@
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" placeholder="<?= user()->password_hash; ?>" readonly>
+          <label for="password">Role</label>
+          <input type="password" class="form-control" placeholder="<?= $user->name;?>" readonly>
         </div>
       </div>
     </div>
-    <div class="row gutters">
-      
-    </div>
+
     <div class="row gutters">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="text-right">
-          <button type="button" id="submit" name="submit" class="btn btn-primary">Change Password</button>
+          <a href="<?= base_url('admin/userList'); ?>">&laquo; back to user list</a>
         </div>
       </div>
     </div>
